@@ -104,6 +104,7 @@ body {
 		margin: 0.7em 0 0.9em;
 		color: $soft-blue;
 		font-size: 1.5rem;
+		font-weight: 300;
 	}
 
 	&__box {
@@ -115,6 +116,7 @@ body {
 			display: flex;
 			align-items: center;
 			color: $cyan;
+			font-weight: 600;
 
 			img {
 				margin-right: 0.4em;
@@ -198,6 +200,10 @@ body {
 
 		&__text {
 			margin: 0.9em 0em 1.3em;
+		}
+
+		&__box {
+			font-size: 1.6rem;
 		}
 
 		&__line {
