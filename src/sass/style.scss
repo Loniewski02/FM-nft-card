@@ -1,0 +1,211 @@
+@use './colors' as *;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Outfit', sans-serif;
+	font-size: 1.6rem;
+	background-color: $main-bg;
+}
+
+@mixin activeStates {
+	cursor: pointer;
+	transition: color 0.3s;
+
+	&:hover {
+		color: $cyan;
+	}
+}
+
+@mixin focusStyles {
+	border-bottom: 2px dashed transparent;
+
+	&:focus {
+		width: max-content;
+		outline: none;
+		border-bottom: 2px dashed $cyan;
+	}
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	padding: 1.5em;
+	max-width: min-content;
+	background-color: $card-bg;
+	border-radius: 15px;
+
+	&__img {
+		position: relative;
+		margin-bottom: 1.5em;
+		width: 18rem;
+		height: 18rem;
+		background-image: url('../img/image-equilibrium.jpg');
+		background-size: cover;
+		background-position: center;
+		border-radius: 8px;
+		overflow: hidden;
+		cursor: pointer;
+
+		&-ico {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 0;
+			transition: width 0.3s;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: transparent;
+			transition: background-color 0.3s;
+		}
+
+		&:hover {
+			.card__img-ico {
+				width: 4.4rem;
+			}
+		}
+
+		&:hover::before {
+			background-color: $cyan-transparent;
+		}
+	}
+
+	&__title {
+		color: $white;
+		font-size: 2rem;
+		@include activeStates;
+		@include focusStyles;
+	}
+
+	&__text {
+		margin: 0.7em 0 0.9em;
+		color: $soft-blue;
+		font-size: 1.5rem;
+	}
+
+	&__box {
+		display: flex;
+		justify-content: space-between;
+		font-size: 1.2rem;
+
+		&-price {
+			display: flex;
+			align-items: center;
+			color: $cyan;
+
+			img {
+				margin-right: 0.4em;
+			}
+		}
+
+		&-time {
+			display: flex;
+			align-items: center;
+			color: $soft-blue;
+
+			img {
+				margin-right: 0.5em;
+			}
+		}
+	}
+
+	&__line {
+		margin: 1em 0;
+		width: 100%;
+		height: 1px;
+		background-color: $card-line-color;
+	}
+
+	&__author {
+		display: flex;
+		align-items: center;
+		color: $soft-blue;
+		font-size: 1rem;
+
+		img {
+			margin-right: 1em;
+			height: 3.3rem;
+			width: 3.3rem;
+			border: 1px solid $white;
+			border-radius: 50%;
+		}
+
+		span {
+			margin-left: 0.4em;
+			color: $white;
+			@include activeStates;
+			@include focusStyles;
+		}
+	}
+}
+
+@media (min-width: 375px) {
+	.card {
+		&__img {
+			width: 27.8rem;
+			height: 27.8rem;
+		}
+
+		&__title {
+			font-size: 2.2rem;
+		}
+
+		&__text {
+			font-size: 1.8rem;
+			line-height: 26px;
+		}
+
+		&__box {
+			font-size: 1.5rem;
+		}
+
+		&__author {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.card {
+		padding: 1.5em 1.5em 2em;
+		&__img {
+			width: 30.2rem;
+			height: 30.2rem;
+		}
+
+		&__text {
+			margin: 0.9em 0em 1.3em;
+		}
+
+		&__line {
+			margin: 1.5em 0 1em;
+		}
+
+		&__author {
+			font-size: 1.5rem;
+		}
+	}
+}
