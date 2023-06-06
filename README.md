@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: https://github.com/Loniewski02/FM-nft-card
-- Live Site URL: https://loniewski02.github.io/FM-nft-card/
+- Solution URL: [solution](https://www.frontendmentor.io/solutions/html-sass-nft-card-SV6AjVa9-X)
+- Live Site URL: [live](https://loniewski02.github.io/FM-nft-card/)
 
 ## My process
 
